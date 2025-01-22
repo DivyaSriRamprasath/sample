@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loop tasks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container mt-5 justify-content-center">
+        <h2>Print the range</h2>
+        <div class="row mt-4">
+            <div class="col">Enter the 1st number</div>
+            <div class="col"><input type="text" id="input1"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Enter the 2nd number</div>
+            <div class="col"><input type="text" id="input2"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="loopRange()">submit</button></div>
+            <div id="getNumbers"></div>
+        </div>
+
+        <script>
+            function loopRange(){
+                inp1 = Number(document.getElementById('input1').value);
+                inp2 = Number(document.getElementById('input2').value);
+
+                for(let i=inp1; i<inp2; i++){
+                    document.getElementById('getNumbers').innerHTML += i + " ";
+                }
+            }
+        </script>
+
+        <br>
+        <br><br>
+        <h2>Print 5th muliplication table</h2>
+        <div class="row mt-4">
+            <div class="col"><button type="button" class="btn-primary" onclick="table5()">display table 5</button></div>
+            <div class="row"><div class="col" id="printTable"></div></div>
+        </div>
+
+        <script>
+            function table5(){
+                for(let i=1; i<=10; i++){
+                    document.getElementById('printTable').innerHTML += "5 * " + i + " = " + 5*i + "<br>"; 
+                }
+            }
+        </script>
+
+        <br>
+        <br><br>
+        <h2>Print tables</h2>
+        <div class="row mt-4">
+            <div class="col">Print table</div>
+            <div class="col"><input type="text" id="table" placeholder="Enter the table"></div>
+            <div class="col"><input type="text" id="range" placeholder="Enter the range"></div>
+            <div class="col"><button type="button" class="btn-primary" >submit</button></div>
+        </div>
+        <div class="row mt-4">
+            <div id="getTable"></div>
+        </div>
+
+        <script>
+            function displayTable(){
+                t = Number(document.getElementById('table').value);
+                r = Number(document.getElementById('range').value);
+                for(let i=1; i<=r; i++){
+                    document.getElementById('getTable').innerHTML += t + " * " + i + " = " + t*i + "<br>"; 
+                }
+            }
+        </script>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Reverse a number</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="revNum" placeholder="Enter the number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="reverse()">submit</button></div>
+            <div class="col"></div>
+        </div>
+
+        <div  class="row mt-4"><div id="reversedNum"></div></div>
+
+        <script>
+            function reverse(){
+                rev = Number(document.getElementById('revNum').value);
+                var num = Number(rev);
+                var digit, reversed = 0;
+                while(num != 0){
+                    digit = num%10;
+                    reversed = reversed*10 + digit;
+                    num = Math.floor(num/10);        // use math.floor to ensure that num is integer. otherwise you'lll get error
+                }
+                document.getElementById('reversedNum').innerText = reversed;
+            }
+        </script>
+
+        <br><br><br>
+
+        <h2>Print Odd number</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="start" placeholder="Enter the range"></div>
+            <div class="col"><input type="text" id="end" placeholder="Enter the range"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="oddRange()">submit</button></div>
+            <div class="col"></div>
+        </div>
+        <div  class="row mt-4"><div id="oddNum"></div></div>
+
+        <script>
+            function oddRange(){
+                startRange = Number(document.getElementById('start').value);
+                endRange = Number(document.getElementById('end').value);
+                for(let i=startRange; i<endRange; i+=2){
+                    if(i%2!=0){
+                        console.log(i);
+                        document.getElementById('oddNum').innerHTML += i + " ";
+                    }
+                    else{
+                        i++;
+                        document.getElementById('oddNum').innerHTML = i + " ";
+                    }
+                }
+            }
+        </script>
+
+        <br><br><br>
+
+        <h2>Neutralize into single digit</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="inputDigit" placeholder="Enter the number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="neutralize()">submit</button></div>
+            <div class="col"></div>
+        </div>
+        <div  class="row mt-4"><div id="neutralized"></div></div>
+
+        <script>
+            function neutralize(){
+                let digitToNeutralize = Number(document.getElementById('inputDigit').value);
+                let modValue = 0;
+                modValue = digitToNeutralize % 10;
+                digitToNeutralize = Math.floor(digitToNeutralize/10);
+                modValue = modValue + (digitToNeutralize % 10);
+                digitToNeutralize = Math.floor(digitToNeutralize/10);
+                result = modValue;
+
+                while(digitToNeutralize != 0){
+                    modValue = modValue + (digitToNeutralize%10);
+                    digitToNeutralize = Math.floor(digitToNeutralize/10);
+
+                    if(digitToNeutralize == 0 && modValue > 9){
+                        digitToNeutralize = modValue;
+                        modValue = 0;
+                    }
+                }
+                document.getElementById('neutralized').innerHTML = modValue;
+            }
+        </script>
+
+                <br><br><br>
+
+        <h2>Factorial of a number</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="inputDigit1" placeholder="Enter the number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="factorial()">submit</button></div>
+            <div class="col"></div>
+        </div>
+        <div  class="row mt-4"><div id="factResult"></div></div>
+
+        <script>
+            function factorial(){
+                let factInput = Number(document.getElementById('inputDigit1').value);
+                let factorialResult = 1;
+                for(let i=1; i<=factInput; i++){
+                    factorialResult = factorialResult * i;
+                }
+
+                document.getElementById('factResult').innerHTML = factorialResult;
+            }
+        </script>
+        <br><br><br>
+
+        <h2>Fibonacci series of a number</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="fiboInput" placeholder="Enter the number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="fibonacci()">submit</button></div>
+            <div class="col"></div>
+        </div>
+        <div  class="row mt-4"><div id="fiboResult"></div></div>
+
+        <script>
+            function fibonacci(){
+                let fibo = Number(document.getElementById('fiboInput').value);
+                let num1 = 0, num2 = 1, num3;
+                document.getElementById('fiboResult').innerText = num1 + " " + num2 + " ";
+                for(let i=3; i<=fibo; i++){
+                    num3 = num1 + num2;
+                    document.getElementById('fiboResult').innerHTML += num3 + " ";
+                    num1 = num2;
+                    num2 = num3;
+                }
+            }
+        </script>
+        <br><br><br>
+
+        <h2>Armstrong number</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="numberInput" placeholder="Enter the number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="armstrong()">submit</button></div>
+            <div class="col"></div>
+        </div>
+        <div  class="row mt-4"><div id="armResult"></div></div>
+
+        <script>
+            function armstrong(){
+                let inputValue = Number(document.getElementById('numberInput').value);
+                let num = inputValue, cube = 0;
+                while(num!=0){
+                    individualDigit = num%10;
+                    cube = cube + (individualDigit * individualDigit * individualDigit);
+                    num = Math.floor(num/10);
+                }
+
+                if(cube == inputValue){
+                    document.getElementById('armResult').innerHTML = "The given number is armstrong number";
+                }
+                else{
+                    document.getElementById('armResult').innerHTML = "The given number is not a armstrong number";
+                }
+            }
+        </script>
+        <br><br><br>
+
+        <h2>Prime number</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="checkInput" placeholder="Enter the number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="prime()">submit</button></div>
+            <div class="col"></div>
+        </div>
+        <div  class="row mt-4"><div id="primeResult"></div></div>
+
+        <script>
+            function prime(){
+                let primeCheck = Number(document.getElementById('checkInput').value);
+                if(primeCheck ){
+
+                }
+            }
+        </script>
+
+    </div>
+</body>
+</html>

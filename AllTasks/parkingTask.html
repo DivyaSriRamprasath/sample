@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .park{
+            height: 300px;
+            width: 100px;
+            border: solid ;
+            border-top: hidden;
+            border-bottom: hidden;
+            border-radius: 1rem;
+            background-color: green;
+            /* border-right: solid; */
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Parking Area</h2>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="vehicleNo" placeholder="Enter your vehicle number"></div>
+            <div class="col">
+                <input type="text" id="slot" placeholder="enter your slot preference">
+            </div> 
+            <div class="col" style="align-content: center;"><button type="button" class="btn btn-primary" onclick="parkingSlot()">Get parking</button></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col"><div class="col"><input type="text" id="exitVehicleNo" placeholder="Enter your vehicle number"></div></div>
+            <div class="col" style="align-content: center;"><button type="button" class="btn btn-primary" onclick="exit()">Exit parking</button></div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row mt-4">
+            <p id="info"></p>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container mt-4">    
+        <div class="row">
+            <div class="col park" id="slot1">1</div>
+            <div class="col park" id="slot2">2</div>
+            <div class="col park" id="slot3">3</div>
+            <div class="col park" id="slot4">4</div>
+            <div class="col park" id="slot5">5</div>
+        </div>
+
+        <div class="row" style="border-top: solid;">
+            <div class="col park" id="slot6">6</div>
+            <div class="col park" id="slot7">7</div>
+            <div class="col park" id="slot8">8</div>
+            <div class="col park" id="slot9">9</div>
+            <div class="col park" id="slot10">10</div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <script>
+        sl1 = document.getElementById('slot1');
+        sl2 = document.getElementById('slot2');
+        sl3 = document.getElementById('slot3');
+        sl4 = document.getElementById('slot4');
+        sl5 = document.getElementById('slot5');
+        sl6 = document.getElementById('slot6');
+        sl7 = document.getElementById('slot7');
+        sl8 = document.getElementById('slot8');
+        sl9 = document.getElementById('slot9');
+        sl10 = document.getElementById('slot10');
+        information = document.getElementById('info');
+        let vehicle = [];
+        // let vehicle = [[123, slot1], [], [], [], [], [], [], [], [], []];
+        // let vehicle = [123, slot1, 1234, slot2];
+        // VNo = document.getElementById('vehicleNo').value;
+        
+        // selectedSlot = document.getElementById('selectSlot').value;
+
+        function parkingSlot(){
+            vNo = document.getElementById('vehicleNo').value;
+            sl = document.getElementById('slot').value;
+            console.log(sl);
+            if(sl === "slot1"){
+                if(sl1.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 1";
+                    sl1.style.backgroundColor = "grey";
+                    vehicle[0] = [vNo, sl];
+                }
+            }
+            if(sl === "slot2"){
+                if(sl2.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 2";
+                    sl2.style.backgroundColor = "grey";
+                    vehicle[1] = [vNo, sl];
+                }
+            }
+            if(sl === "slot3"){
+                if(sl3.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 3";
+                    sl3.style.backgroundColor = "grey";
+                    vehicle[2] = [vNo, sl];
+                }
+            }
+            if(sl === "slot4"){
+                if(sl4.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 4";
+                    sl4.style.backgroundColor = "grey";
+                    vehicle[3] = [vNo, sl];
+                }
+            }
+            if(sl === "slot5"){
+                if(sl5.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 5";
+                    sl5.style.backgroundColor = "grey";
+                    vehicle[4] = [vNo, sl];
+                }
+            }
+            if(sl === "slot6"){
+                if(sl6.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 6";
+                    sl6.style.backgroundColor = "grey";
+                    vehicle[5] = [vNo, sl];
+                }
+            }
+            if(sl === "slot7"){
+                if(sl7.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 7";
+                    sl7.style.backgroundColor = "grey";
+                    vehicle[6] = [vNo, sl];
+                }
+            }
+            if(sl === "slot8"){
+                if(sl8.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 8";
+                    sl8.style.backgroundColor = "grey";
+                    vehicle[7] = [vNo, sl];
+                }
+            }
+            if(sl === "slot9"){
+                if(sl9.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 9";
+                    sl9.style.backgroundColor = "grey";
+                    vehicle[8] = [vNo, sl];
+                }
+            }
+            if(sl === "slot10"){
+                if(sl10.style.backgroundColor == "grey"){
+                    document.getElementById('info').innerHTML = "The selected slot is not available. Please select any other slots.";
+                }
+                else{
+                    document.getElementById('info').innerHTML = "The selected slot is available. You can park your vehicle at slot number 10";
+                    sl10.style.backgroundColor = "grey";
+                    vehicle[9] = [vNo, sl];
+                }
+            }
+            console.log(vehicle);
+        }
+
+        function exit(){
+            VNo = document.getElementById('exitVehicleNo').value;
+            console.log(VNo);
+            // console.log(vehicle.includes(VNo));
+            flatVehicle = vehicle.flat();
+            if(flatVehicle.includes(VNo)){
+                document.getElementById('info').innerHTML = "successfully exited from parking. Thank you..."
+                // exitSlot = vehicle.indexOf(VNo)+1;
+                exitSlot = "";
+                for(let idx=0; idx<=vehicle.length; idx++){
+                    // if(vehicle[idx].length > 0 && vehicle[idx][0] === VNo){
+                    //     exitSlot = idx+1;
+                    //     break;
+                    // }
+                    // let vehicle = [[123, slot1], [], [], [], [], [], [], [], [], []];
+                    if(vehicle[idx] && vehicle[idx].length > 0 && vehicle[idx][0] === VNo){
+                        exitSlot = vehicle[idx][1];
+                        vehicle[idx] = [];
+                        break;
+                    }
+                }
+                console.log(exitSlot);
+
+                switch(exitSlot){
+                    case "slot1":
+                        sl1.style.backgroundColor = "green";
+                        break;
+                    case "slot2":
+                        sl2.style.backgroundColor = "green";
+                        break;
+                    case "slot3":
+                        sl3.style.backgroundColor = "green";
+                        break;
+                    case "slot4":
+                        sl4.style.backgroundColor = "green";
+                        break;
+                    case "slot5":
+                        sl5.style.backgroundColor = "green";
+                        break;
+                    case "slot6":
+                        sl6.style.backgroundColor = "green";
+                        break;
+                    case "slot7":
+                        sl7.style.backgroundColor = "green";
+                        break;
+                    case "slot8":
+                        sl8.style.backgroundColor = "green";
+                        break;
+                    case "slot9":
+                        sl9.style.backgroundColor = "green";
+                        break;
+                    case "slot10":
+                        sl10.style.backgroundColor = "green";
+                        break;
+                }
+            }
+            else{
+                document.getElementById('info').innerHTML = "There is no such vehicle at our parking area. please check in other parking areas."
+            }
+        }
+    </script>
+    
+</body>
+</html>

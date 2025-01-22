@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book tickets</title>
+    <link rel="icon" type="image/x-icon" href="../assets/BOOKIFYzoomed.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+    <script src="functionalities.js"></script>
+    <style>
+        .seats{
+            /* height: 50px;
+            width: 40px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            border: solid;
+            border-top: hidden;
+            border-bottom: hidden;
+            border-radius: 1rem;
+            background-color: grey; */
+            height: 40px; 
+            width: 40px;  
+            padding: 0;
+            margin: 5px;  
+            border: solid 2px black; 
+            border-radius: 5px; 
+            
+            /* display: inline-flex;  */
+            justify-content: center; 
+            align-items: center; 
+            /* cursor: pointer;  */
+            /* border-right: solid; */
+        }
+
+        .seatbtn{
+            background: transparent;
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .row {
+            display: flex; 
+            justify-content: flex-start; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 10px; 
+            justify-content: flex-start;
+            max-width: 300px;
+            margin: auto;
+            /* border: 2px solid; */
+        }
+
+        .available, .sold, .selected{
+            height: 15px; 
+            width: 15px;  
+            padding: 0;
+            margin: 5px;  
+            border: solid 2px black; 
+            border-radius: 5px; 
+            /* background-color: grey; */
+            /* display: inline-flex; */
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+        }
+
+        .footer{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            padding: 10px 0;
+            margin-left: 712px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- book my show logo : height="60px" width="120px" -->
+          <a class="navbar-brand" href="#"><img src="../assets/BOOKIFYzoomed.jpg" alt="Bookify" height="90px" width="90px" style="margin-left: 100px;"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search for movies, Events, Plays, Sports and Activities" aria-label="Search" style="width: 500px;">
+              <button class="btn btn-outline-danger btn-sm" style="width: 70px;" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="width: 240px;"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item dropdown">
+                <select id="locations" name="locations" class="form-select">
+                  <option value="Chennai" selected>Chennai</option>
+                  <option value="Madurai">Madurai</option>
+                  <option value="Trichy">Trichy</option>
+                  <option value="Coimbatore">Coimbatore</option>
+                  <option value="Thanjavur">Thanjavur</option>
+                  <option value="Kanyakumari">Kanyakumari</option>
+                  <option value="Nagarcoeil">Nagarcoeil</option>
+                  <option value="Virudhunagar">Virudhunagar</option>
+                  <option value="Pudukottai">Pudukottai</option>
+                  <option value="Dindugal">Dindugal</option>
+                  <option value="Karur">Karur</option>
+                  <option value="Kodaikkanal">Kodaikkanal</option>
+                  <option value="Paramakudi">Paramakudi</option>
+                  <option value="Ramanathapuram">Ramanathapuram</option>
+                  <option value="Sivagangai">Sivagangai</option>
+                  <option value="Cuddalore">Cuddalore</option>
+                </select>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                <span id="loginbtn"><a href="./login.html" class="btn btn-outline-danger">Login</a></span>
+                <span id="logoutbtn"><a class="btn btn-outline-danger" onclick="logout()">Logout</a></span>            
+              </li>
+            </ul>
+  
+            <!-- modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get started</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row mb-2">
+                      <div class="col"><label for="userName">User name</label></div>
+                      <div class="col"><input type="text" id="userName"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col"><label for="Password">Password</label></div>
+                      <div class="col"><input type="password" id="Password"></div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="registerbtn">Register</button>
+                    <button type="button" class="btn btn-danger" onclick="validateUser()">Log in</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </nav>
+  
+      
+  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 93px;">
+              <li class="nav-item" style="margin-right: 30px;">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item" style="margin-right: 30px;">
+                <a class="nav-link active" aria-current="page" href="movies.html">Movies</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="customerCare.html">Customer Care</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="deactivateAccount.html">Deactivate account</a></li>
+                  <li><a class="dropdown-item" href="forgotPassword.html">Forgot password</a></li>
+                </ul>
+              </li>
+              <li class="nav-item" style="width: 618px;">
+                <a class="nav-link" href="" style="pointer-events: none;"> </a>
+              </li>
+              <li class="nav-item" style="margin-right: 30px;">
+                <a class="nav-link active" aria-current="page" href="showBookedTickets.html">ShowBookedTickets</a>
+              </li>
+              <li class="nav-item" style="margin-right: 15px;">
+                <a class="nav-link active" href="contactUs.html">ContactUs</a>
+              </li>
+              <li class="nav-item" style="margin-left: 30px;">
+                <a class="nav-link active" href="aboutUs.html">AboutUs</a>
+              </li>
+            </ul>
+  
+  
+          </div>
+        </div>
+      </nav>
+  
+    <div class="container mt-5"></div>
+    <h2 style="text-align: center;">Select your seat</h2>
+
+
+    <div class="container">
+        <div class="row mt-5">
+
+            <div class="col seats" id="seat1"><button type="button" class="seatbtn" id="s1"></button></div>
+            <div class="col seats" id="seat2"><button type="button" class="seatbtn" id="s2"></button></div>
+            <div class="col seats" id="seat3"><button type="button" class="seatbtn" id="s3"></button></div>
+            <div class="col seats" id="seat4"><button type="button" class="seatbtn" id="s4"></button></div>
+            <div class="col seats" id="seat5"><button type="button" class="seatbtn" id="s5"></button></div>
+        </div>
+        <div class="row">
+            <div class="col seats" id="seat6"><button type="button" class="seatbtn" id="s6"></button></div>
+            <div class="col seats" id="seat7"><button type="button" class="seatbtn" id="s7"></button></div>
+            <div class="col seats" id="seat8"><button type="button" class="seatbtn" id="s8"></button></div>
+            <div class="col seats" id="seat9"><button type="button" class="seatbtn" id="s9"></button></div>
+            <div class="col seats" id="seat10"><button type="button" class="seatbtn" id="s10"></button></div>
+        </div>
+        <div class="row">
+            <div class="col seats" id="seat11"><button type="button" class="seatbtn" id="s11"></button></div>
+            <div class="col seats" id="seat12"><button type="button" class="seatbtn" id="s12"></button></div>
+            <div class="col seats" id="seat13"><button type="button" class="seatbtn" id="s13"></button></div>
+            <div class="col seats" id="seat14"><button type="button" class="seatbtn" id="s14"></button></div>
+            <div class="col seats" id="seat15"><button type="button" class="seatbtn" id="s15"></button></div>
+        </div>
+    </div>
+
+    <div class="container mt-5 alignSeat" style="margin-left: 650px;">
+        <div class="row" style="margin-left: 5px;">
+            <div class="col available" style="margin-right: 52px;"></div>
+            <div class="col sold" style="background-color: red; margin-right: 52px;"></div>
+            <div class="col selected" style="background-color: green;"></div>
+        </div>
+        <div class="row" style="margin-inline-start: -23px;">
+            <div class="col">Available</div>
+            <div class="col">Sold</div>
+            <div class="col">Selected</div>
+        </div>
+    </div>
+
+    <div class="container justify-content-center footer">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <button type="button" class="btn btn-danger btn-sm" style="width: 170px; visibility: hidden;" id="bookBtn" data-bs-toggle="modal" data-bs-target="#totModal" onclick="calculateTot()">Book seats</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="totModal" tabindex="-1" aria-labelledby="totModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="dispTot"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" class="btn-close" data-bs-dismiss="modal">back</button>
+              <button type="button" class="btn btn-success" onclick="returnPage()">Book tickets</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+</body>
+</html>

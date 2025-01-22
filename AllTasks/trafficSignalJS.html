@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic signal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <style>
+
+        .custom-style{
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            /* border: 2px solid; */
+        }
+
+        #northRight, #northRight, #northRight4, #northLeft4, #northLeft, #northLeft, #southRight, #southRight1, #southLeft, #southLeft1{
+            background-color: red;
+            border : none;
+        }
+
+        #eastTop, #eastBottom,  #westTop, #westBottom{
+            background-color: red;
+            border : none;
+        }
+
+        /* .dotted-line {
+            position: absolute;
+            background: transparent;
+            z-index: 1;
+        }
+
+        .horizontal-line {
+            width: 100%;
+            height: 2px;
+            border-top: 2px dotted black;
+            top: 50%;
+        }
+
+        .vertical-line {
+            height: 100%;
+            width: 2px;
+            border-left: 2px dotted black;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container1 {
+            position: relative;
+            max-width : 300px;
+            margin: auto;
+        } */
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5 container1">
+        
+        <!-- <div class="row justify-content-center">
+            <div class="col-1 custom-style" id="northLeft1"></div>
+            <div class="col-1 custom-style" id="northRight1"></div>
+        </div> 
+
+        <div class="row justify-content-center">
+            <div class="col-1 custom-style" id="northLeft2"></div>
+            <div class="col-1 custom-style" id="northRight2"></div>
+        </div> -->
+
+        <div class="row justify-content-center row-container">
+            <div class="col-1 custom-style" id="northLeft"></div>
+            <div class="col-1 custom-style" id="northRight"></div>
+        </div>
+
+        <div class="row justify-content-center row-container">
+            <div class="col-2 custom-style" id="westTop"></div>
+            <div class="col-1 custom-style" id="northLeft4"></div>
+            <div class="col-1 custom-style" id="northRight4"></div>
+            <div class="col-2 custom-style" id="eastTop"></div>
+        </div>
+
+        <div class="row justify-content-center row-container">
+            <div class="col-2 custom-style" id="westBottom"></div>
+            <div class="col-1 custom-style" id="southLeft1"></div>
+            <div class="col-1 custom-style" id="southRight1"></div>
+            <div class="col-2 custom-style" id="eastBottom"></div>
+        </div>
+
+        <div class="row justify-content-center row-container">
+            <div class="col-1 custom-style" id="southLeft"></div>
+            <div class="col-1 custom-style" id="southRight"></div>
+        </div>
+
+
+
+        <!-- <div class="row justify-content-center">
+            <div class="col-1 custom-style" id="southLeft3"></div>
+            <div class="col-1 custom-style" id="southRight3"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-1 custom-style" id="southLeft4"></div>
+            <div class="col-1 custom-style" id="southRight4"></div>
+        </div> -->
+
+        <!-- <div class="horizontal-line dotted-line"></div>
+        <div class="vertical-line dotted-line"></div> -->
+
+    </div>
+
+    <div class="container mt-4">
+        <div class="row mt-4 justify-content-center">
+            <div class="col"><button type="button" class="btn-primary" onclick="north()">North</button></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="south()">South</button></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="east()">East</button></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="west()">West</button></div>
+        </div>
+    </div>
+
+    
+
+    <script>
+
+        var nr, nr4, nl, nl4, sr, sl, sl2, sr2, et, eb, wt, wb;
+        var isNorthOn = false;
+        var isSouthOn = false;
+        var isEastOn = false;
+        var isWestOn = false;
+
+        function getElements(){
+            nr = document.getElementById('northRight');
+            nl = document.getElementById('northLeft');
+            nr4 = document.getElementById('northRight4');
+            nl4 = document.getElementById('northLeft4');
+            sr = document.getElementById('southRight');
+            sl = document.getElementById('southLeft');
+            sr2 = document.getElementById('southRight1');
+            sl2 = document.getElementById('southLeft1');
+            et = document.getElementById('eastTop');
+            eb = document.getElementById('eastBottom');
+            wt = document.getElementById('westTop');
+            wb = document.getElementById('westBottom');
+        }
+        getElements();
+
+        function setDefault(){
+            nl.style.backgroundColor = "red";
+            nl4.style.backgroundColor = "red";
+            nr.style.backgroundColor = "red";
+            nr4.style.backgroundColor = "red";
+            sl.style.backgroundColor = "red";
+            sl2.style.backgroundColor = "red";
+            sr.style.backgroundColor = "red";
+            sr2.style.backgroundColor = "red";
+            et.style.backgroundColor = "red";
+            eb.style.backgroundColor = "red";
+            wt.style.backgroundColor = "red";
+            wb.style.backgroundColor = "red";
+        }
+
+        function north(){
+            if(isNorthOn){
+                setDefault();
+                isNorthOn = false;
+            }
+            else{
+            wb.style.backgroundColor = "green";
+            et.style.backgroundColor = "green";
+            sr.style.backgroundColor = "green";
+            sr2.style.backgroundColor = "green";
+
+            isNorthOn = true;
+            }
+
+        }
+
+        function south(){
+
+            if(isSouthOn){
+                setDefault();
+                isSouthOn = false;
+            }
+            else{
+                nl.style.backgroundColor = "green";
+                nl4.style.backgroundColor = "green";
+                wb.style.backgroundColor = "green";
+                et.style.backgroundColor = "green";
+
+                isSouthOn = true;
+            }
+
+            
+        }
+
+        function east(){
+            if(isEastOn){
+                setDefault();
+                isEastOn = false;
+            }
+            else{
+                nr.style.backgroundColor = "green";
+                nr4.style.backgroundColor = "green";
+                wt.style.backgroundColor = "green";
+                sl.style.backgroundColor = "green";
+                sl2.style.backgroundColor = "green";
+                // nl4.style.backgroundColor = "green";
+                isEastOn = true;
+            }
+        }
+
+        function west(){
+            if(isWestOn){
+                setDefault();
+                isWestOn = false;
+            }
+            else{
+                et.style.backgroundColor = "green";
+                sr.style.backgroundColor = "green";
+                sr2.style.backgroundColor = "green";
+                nl.style.backgroundColor = "green";
+                nl4.style.backgroundColor = "green";
+                isWestOn = true;
+            }
+        }
+
+    </script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Ex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>SetTimeOut and SetInterval</h2>
+        <script>
+            function showAlert(){
+                
+            }
+        </script>
+    </div>
+    <div class="container mt-4">
+        <h2> Date Example </h2>
+        <p id="dateResult"></p>
+
+        <script>
+            function dateEx(){
+
+                let result = "";
+                let dt = new Date();
+
+                result += "Date : " + dt + "<br>";
+                result += "getFullYear : " + dt.getFullYear() + "<br>";
+                result += "getMonth : " + dt.getMonth() + "<br>";
+                result += "getDate : " + dt.getDate() + "<br>";
+                result += "getDay : " + dt.getDay() + "<br>";
+                result += "getHours : " + dt.getHours() + "<br>";
+                result += "getMinutes : " + dt.getMinutes() + "<br>";
+                result += "getSeconds : " + dt.getSeconds() + "<br>";
+                result += "getTime : " + dt.getTime() + "<br>";
+                result += "Date.now() : " + Date.now() + "<br>";
+                result += "Date : " + dt + "<br>";
+                result += "setFullYear : " + dt.setFullYear(2025) + "<br>";
+                result += "setMonth : " + dt.setMonth(1) + "<br>";
+                result += "setDate : " + dt.setDate(16) + "<br>";
+                result += "getDay : " + dt.getDay() + "<br>";
+                result += "setHours : " + dt.setHours(5) + "<br>";
+                result += "setMinutes : " + dt.setMinutes(45) + "<br>";
+                result += "setSeconds : " + dt.setSeconds(48) + "<br>";
+                result += "setMilliseconds : " + dt.setMilliseconds(604800000) + "<br>";
+                let dtt = new Date();
+                dtt.setTime(dtt.getTime() - (24 * 60 * 60 * 1000 * 7) )
+                result += "7Days : " + dtt + "<br>";
+                result += "Date : " + dt + "<br>";
+
+                /*
+                1 Year = 12
+                1 Month = 30, 31, 28/29
+                1 Day = 24 H
+                1 Hour = 60 Min
+                1 Min = 60 Sec
+                1 Sec = 1000 MS
+
+                MSPerDay = 24 * 60 * 60 * 1000 = 86400000
+                MSPerDay = 24 * 60 * 60 * 1000 * 7 = 604800000
+                */
+
+
+                document.getElementById('dateResult').innerHTML = result;
+            }
+            dateEx();
+        </script>
+    </div>
+    
+    
+</body>
+</html>

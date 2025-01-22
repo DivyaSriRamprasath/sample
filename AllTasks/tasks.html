@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <h1 style="text-align: center; margin-top: 30px;">TASKS</h1>
+    <div class="container mt-4 justify-content-center">
+        <div class="row mt-4">
+            <div class="col">Finding greatest number</div>
+            <div class="col"><input type="text" id="input1" placeholder="Enter the 1st number"></div>
+            <div class="col"><input type="text" id="input2" placeholder="Enter the 2nd number"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="findGreatest()">Check greatest</button></div>
+            <div class="row mt-4"><b><div id="displayResult"></div></b></div>
+
+            <script>
+                // var num1, num2, result;
+                function findGreatest(){
+                    num1 = Number(document.getElementById('input1').value);
+                    num2 = Number(document.getElementById('input2').value);
+                    if(num1 > num2){
+                        result = num1 + " is greatest";
+                    }
+                    else if(num2 > num1){
+                        result = num2 + " is greatest";
+                    }
+                    else{
+                        result = "Both are equal";
+                    }
+                    document.getElementById('displayResult').innerText = result;
+                }
+            </script>
+        </div>
+
+        <br>
+        <div class="row mt-5">
+            <div class="col">Check Odd or Even</div>
+            <div class="col"><input type="text" id="number" placeholder="Enter the number"></div>
+            <div class="col"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="checkOddEven()">check</button></div>    
+            <div class="row mt-4"><b><div id="getResult"></div></b></div>
+
+            <script>
+                function checkOddEven(){
+                    num = Number(document.getElementById('number').value);
+                    if(num%2 == 0){
+                        result1 = "The given number is Even";
+                    }
+                    else{
+                        result1 = "the given number is Odd";
+                    }
+                    document.getElementById('getResult').innerText = result1;
+                }
+            </script>
+        </div>
+        <br>
+
+        <div class="row mt-5">
+            <div class="col">Apply discount</div>
+            <div class="col"><input type="text" id="billAmt" placeholder="Enter the amount"></div>
+            <div class="col"></div>
+            <div class="col"><button type="button" class="btn-primary" onclick="discount()">Apply discount</button></div>          
+            <div class="row mt-4"><b><div id="getDiscount"></div></b></div>
+        </div>
+
+        <script>
+            function discount(){
+                bill = Number(document.getElementById('billAmt').value);
+                if(bill > 1000){
+                    discountAmt = bill*10/100;
+                }
+                else{
+                    discountAmt = bill;
+                }
+                document.getElementById('getDiscount').innerText = discountAmt;
+            }
+        </script>
+
+    </div>
+
+    
+</body>
+</html>

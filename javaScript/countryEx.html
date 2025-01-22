@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 style="text-align: center;">Country</h2>
+    </div>
+    <!-- <div class="container mt-4">
+        <div class="row mt-4">
+            <select name="countryName" id="countryName"></select>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col"><input type="text" id="telCode"></div>
+        </div>
+    </div> -->
+    <select name="countryName" id="countryName" onchange="updateTeleCode(this)"></select>
+    <input type="text" id="teleCode" name="teleCode">
+
+    </div>
+    
+    <script src="countryDetails.js"></script>
+    <script>
+        
+        function readCountry(){
+
+            console.log(countries);
+            for(let idx = 0; idx<countries.length; idx++){
+                console.log(countries[idx].fullCountryName);
+            }
+            let countryResult = "";
+            var dropDown = document.getElementById('countryName');
+            var countryTeleCode = document.getElementById('teleCode');
+            for(let country of countries){
+                countryResult = country.fullCountryName;
+                var optionC = document.createElement("Option");
+                optionC.value = countryResult;
+                optionC.textContent = countryResult;
+                dropDown.appendChild(optionC);
+                // telephoneCode = country.countryTelephonyCode;
+                // countryTeleCode
+                countryTeleCode.value = country.countryTelephonyCode;
+                countryTeleCode.textContent = country.countryTelephonyCode;
+                // document.getElementById('counrtyName').innerHTML = countryResult;
+            }
+
+            countries.forEach((country) => { console.log(country.countryTelephonyCode)});
+
+            // document.getElementById('countryResult').innerHTML = countryResult;
+            dropDown.onchange
+        }
+
+        function updateTeleCode(selectElement) {
+            const teleCodeInput = document.getElementById('teleCode');
+            teleCodeInput.value = selectElement.value;
+        }
+
+        
+
+        readCountry();
+    </script>
+
+
+</body>
+</html>    

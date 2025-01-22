@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set and Map</title>
+</head>
+<body>
+    <div class="container mt-4 mb-4">
+        <h2> Set & Map</h2>
+            <p>
+                Array => [], Set => {}, Map => {k,v}
+            </p>
+            <p id="setMapResult"></p>
+            <p id="countryResult"></p>
+
+        <script src="countryDetails.js"></script>
+        <script>
+            function setMapEx(){
+
+                let arr = [ "Naveeth", "Sridhar", "Anbu", "Mari", "Sridhar"];
+                let result = "";
+
+                result += "Array :" + arr;
+
+                let setEx = new Set();
+                setEx.add("Naveeth");
+                setEx.add("Sridhar");
+                setEx.add("Anbu");
+                setEx.add("Mari");
+                setEx.add("Sridhar");
+                setEx.delete("Mari");
+                console.log(setEx.has("Sridhar"));
+                console.log(setEx.keys());
+                console.log(setEx.values());
+                console.log(setEx.entries());
+                console.log(setEx.size);
+                setEx.clear();
+                console.log(setEx);
+
+
+                result += "<br> Set : " + setEx.toString();
+
+                let mapEx = new Map();
+                mapEx.set("1001", "Naveeth");
+                mapEx.set("1002", "Sridhar");
+                mapEx.set("1003", "Anbu");
+                mapEx.set("1004", "Mari");
+                mapEx.set("1005","Sridhar");
+                mapEx.set("1003", "Anbuselvam");
+                console.log(mapEx.get("1005"));
+                console.log(mapEx.size);
+                console.log(mapEx.entries());
+                console.log(mapEx.keys());
+                console.log(mapEx.values());
+                //mapEx.clear();
+                console.log(mapEx);
+
+                console.log(arr);
+                console.log(setEx);
+                console.log(mapEx);
+
+
+
+                document.getElementById('setMapResult').innerHTML = result;
+            }
+
+            setMapEx();
+            
+
+            function readCountry(){
+
+                console.log(countries);
+                for(let idx = 0; idx<countries.length; idx++){
+                    console.log(countries[idx].fullCountryName);
+                }
+
+                let countryResult = "";
+                for(let country of countries){
+                    countryResult += country.fullCountryName + "<br>";
+                }
+
+                // countries.forEach((country) => { console.log(country.countryTelephonyCode)});
+
+                // document.getElementById('countryResult').innerHTML = countryResult;
+            }
+
+            readCountry();
+        </script>
+    </div>
+</body>
+</html>

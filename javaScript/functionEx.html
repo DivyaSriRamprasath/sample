@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diff Functions</title>
+</head>
+<body>
+    <div>
+        <h2>Predefined and Type of Functions</h2>
+
+        <p id="clck"></p>
+
+        <script>
+
+
+
+           function callPreDef(){
+
+            setTimeout(()=>{
+                console.log("Hello");
+            },5000);
+
+            setInterval(()=>{
+                document.getElementById('clck').innerHTML = new Date();
+            },1000);
+           }
+
+           callPreDef();
+
+
+           //Lambda Expression
+           let lamb = () => { console.log("Lamb func ")};
+
+           console.log(lamb);
+           lamb();
+
+           let lambFuc = lamb;
+           console.log(lambFuc);
+           lambFuc();
+
+           let arr = [26,79,21,68,49,35];
+           let filteredArr = arr.filter((ele)=> { return (ele%2)==0});
+           console.log(arr);
+           console.log(filteredArr);
+
+           let filArr = [];
+           for(let ele of arr){
+            if((ele%2) == 0)
+                filArr.push(ele);
+           }
+           console.log(filArr);
+
+           let mappedArr = arr.map((ele)=>{ return ele*2});
+           console.log(mappedArr);
+
+
+           //Inner Function
+           function avg(v1,v2,v3){
+
+            function sum(v1,v2,v3){
+                return v1 + v2 + v3;
+            }
+            let result = sum(v1,v2,v3)/3;
+            return result;
+           }
+
+           console.log(avg(10,50,60));
+           //sum(10,20,30);
+
+
+           //callBack Func
+
+           let innFunc = ()=>{
+            console.log("Callback ex");
+           }
+
+           function callBk(innFuncc){
+            innFuncc();
+           }
+
+           callBk(innFunc);
+        </script>
+    </div>
+    
+</body>
+</html>

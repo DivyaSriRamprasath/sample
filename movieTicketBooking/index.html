@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookify</title>
+    <link rel="icon" type="image/x-icon" href="../assets/BOOKIFYzoomed.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+    <!-- <link rel="stylesheet" href="styleEx.css"> -->
+    <script src="functionalities.js"></script>
+
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <!-- book my show logo : height="60px" width="120px" -->
+        <a class="navbar-brand" href="#"><img src="../assets/BOOKIFYzoomed.jpg" alt="Bookify" height="90px" width="90px" style="margin-left: 100px;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search for movies, Events, Plays, Sports and Activities" aria-label="Search" style="width: 500px;">
+            <button class="btn btn-outline-danger btn-sm" style="width: 70px;" type="submit">Search</button>
+          </form>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" style="width: 240px;"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item dropdown">
+              <select id="locations" name="locations" class="form-select">
+                <option value="Chennai" selected>Chennai</option>
+                <option value="Madurai">Madurai</option>
+                <option value="Trichy">Trichy</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Thanjavur">Thanjavur</option>
+                <option value="Kanyakumari">Kanyakumari</option>
+                <option value="Nagarcoeil">Nagarcoeil</option>
+                <option value="Virudhunagar">Virudhunagar</option>
+                <option value="Pudukottai">Pudukottai</option>
+                <option value="Dindugal">Dindugal</option>
+                <option value="Karur">Karur</option>
+                <option value="Kodaikkanal">Kodaikkanal</option>
+                <option value="Paramakudi">Paramakudi</option>
+                <option value="Ramanathapuram">Ramanathapuram</option>
+                <option value="Sivagangai">Sivagangai</option>
+                <option value="Cuddalore">Cuddalore</option>
+              </select>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+              <span id="loginbtn"><a href="./login.html" class="btn btn-outline-danger">Login</a></span>
+              <span id="logoutbtn"><a class="btn btn-outline-danger" onclick="logout()">Logout</a></span>
+              <!-- <span><i class="bi bi-person-circle"></i></span> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 93px;">
+            <li class="nav-item" style="margin-right: 30px;">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item" style="margin-right: 30px;">
+              <a class="nav-link active" aria-current="page" href="movies.html">Movies</a>
+            </li>
+            <li class="nav-item" style="margin-right: 30px;">
+              <a class="nav-link active" aria-current="page" href="showBookedTickets.html">ShowBookedTickets</a>
+            </li>
+            <li class="nav-item dropdown" style="margin-right: 30px;">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                More
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="customerCare.html">Customer Care</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="deactivateAccount.html">Deactivate account</a></li>
+                <li><a class="dropdown-item" href="forgotPassword.html">Forgot password</a></li>
+              </ul>
+            </li>            
+            <li class="nav-item" style="width: 432px;">
+              <a class="nav-link" href="" style="pointer-events: none;"> </a>
+            </li>
+            <li class="nav-item" style="margin-right: 15px;">
+              <a class="nav-link active" href="contactUs.html">ContactUs</a>
+            </li>
+            <li class="nav-item" style="margin-left: 30px; margin-right: 30px;">
+              <a class="nav-link active" href="aboutUs.html">AboutUs</a>
+            </li>
+            <li>
+              <a class="nav-link active" href="profile.html">profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div style="height: 200px; width: 1000px; margin-left: 240px; margin-top: 40px;">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <img src="../assets/walkerbms.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="../assets/bms.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="../assets/goatPoster.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <p style="margin-top: 60px; margin-left: 112px; font-family :Georgia, 'Times New Roman', Times, serif; font-size :larger; font-style:normal;">
+        Recommended movies
+    </p>
+
+    <div id="cardRows"></div>
+
+    <!-- <div class="container mt-4">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="../assets/goatmovieposter.avif" class="card-img-top" alt="...">
+            <div class="card-body"  id="goat">
+              <h5 class="card-title">Greatest Of All Time</h5>
+              <input type="hidden" class="movie-id" value="goat">
+              <p class="card-text">Action/Drama/Thriller</i></p>
+              <a href="bookMovie.html" class="btn btn-danger">Book Tickets</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="../assets/bhimaa.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Bhima</h5>
+              <input type="hidden" class="movie-id" value="bhima">
+              <p class="card-text">Action/Drama/Thriller</i></p>
+              <a href="bookMovie.html" class="btn btn-danger">Book Tickets</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="../assets/lubberPandhu.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Lubber pandhu</h5>
+              <input type="hidden" class="movie-id" value="lubberpandhu">
+              <p class="card-text">Action/Drama/Thriller</i></p>
+              <a href="bookMovie.html" class="btn btn-danger">Book Tickets</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card" style="width: 18rem; ">
+            <img src="../assets/kadaisi-ulaga-por.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Kadaisi ulaga por</h5>
+              <input type="hidden" class="movie-id" value="kadaisiulagapor">            
+              <p class="card-text">Action/Drama/Thriller</i></p>
+              <a href="bookMovie.html" class="btn btn-danger">Book Tickets</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <script>
+      var movie = [];
+
+      getMovieData();
+      function getMovieData(){
+        let movieApi = "https://retoolapi.dev/6z1OKW/BookifyMovie";
+
+        fetch(movieApi)
+        .then(response => response.json())
+        .then(responseData => {
+          movie = responseData;
+          generateMovie(movie);
+        })
+        .catch(error => console.error("Error fetching movie data:", error));
+      }
+
+      function checkSession(mId){
+          let userIdSes = sessionStorage.getItem('userId') || '';
+          if(userIdSes == ''){
+            alert("Please login to Book tickets...");
+            window.location.href = "login.html";
+          }
+          else
+          goToMovieDetails(mId);
+        }
+
+      function goToMovieDetails(mId){
+        sessionStorage.setItem('movieId', mId);
+        // sessionStorage.setItem('movieName', mName);
+        window.location.href = "bookMovie.html";
+      }
+
+      // dynamically generating cards
+      function generateMovie(){
+        let result = "";
+        console.log(movie);
+        
+        for(let num=0; num<4; num++){
+          if(num == 0)
+            result += '<div class="row" style="margin-left: 107px; margin-right: 55px">';
+          
+          result += '<div class="col">' +
+            '<div class="card" style="width: 15rem;">' +
+              '<img src="../assets/cardImgs/'+ movie[num].mImg +'.jpg" class="card-img-top" alt="...">' +
+              '<div class="card-body">' +
+                '<h5 class="card-title">'+ movie[num].mName +'</h5>' +
+                '<input type="hidden" class="movie-id" value="kadaisiulagapor">' +
+                '<p class="card-text">Action/Drama/Thriller</i></p>' +
+                '<button type="button" class="btn btn-danger" onclick="checkSession('+movie[num].id+')">Book Tickets</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+          
+          if(num == 3){
+            result += '</div>';
+          }
+        }
+        console.log(result);
+        document.getElementById('cardRows').innerHTML = result;
+      }
+      // generateMovie();
+    </script>
+
+
+    
+</body>
+</html>
